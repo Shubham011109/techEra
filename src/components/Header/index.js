@@ -1,15 +1,15 @@
 import {Link, withRouter} from 'react-router-dom'
-import {NavHeader, WebsiteLogo} from './styledComponents'
+// import {NavHeader, WebsiteLogo} from './styledComponents'
 
 const Header = () => (
-  <NavHeader>
+  <div>
     <Link to="/">
-      <WebsiteLogo
+      <img
         src="https://assets.ccbp.in/frontend/react-js/tech-era/website-logo-img.png"
         alt="website logo"
       />
     </Link>
-  </NavHeader>
+  </div>
 )
 
 export default withRouter(Header)

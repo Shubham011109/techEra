@@ -3,15 +3,15 @@ import Loader from 'react-loader-spinner'
 import CourseDetailsItem from '../CourseDetailsItem'
 import Header from '../Header'
 
-import {
-  CourseDetailsListContainer,
-  ErrorContainer,
-  ErrorImg,
-  ErrorHeading,
-  ErrorInfo,
-  ErrorRetryButton,
-  LoaderContainer,
-} from './styledComponents'
+// import {
+//   CourseDetailsListContainer,
+//   ErrorContainer,
+//   ErrorImg,
+//   ErrorHeading,
+//   ErrorInfo,
+//   ErrorRetryButton,
+//   LoaderContainer,
+// } from './styledComponents'
 
 const apiStatusConstants = {
   initial: 'INITIAL',
@@ -35,23 +35,21 @@ class CourseDetails extends Component {
   }
 
   renderFailureView = () => (
-    <ErrorContainer>
-      <ErrorImg
+    <div>
+      <img
         src="https://assets.ccbp.in/frontend/react-js/tech-era/failure-img.png"
         alt="failure view"
       />
-      <ErrorHeading>Oops! Something Went Wrong</ErrorHeading>
-      <ErrorInfo>
-        We cannot seem to find the page you are looking for.
-      </ErrorInfo>
-      <ErrorRetryButton
+      <h1>Oops! Something Went Wrong</h1>
+      <p>We cannot seem to find the page you are looking for.</p>
+      <button
         type="button"
         className="retry-button"
         onClick={this.onClickRetry}
       >
         Retry
-      </ErrorRetryButton>
-    </ErrorContainer>
+      </button>
+    </div>
   )
 
   getCourseDetails = async () => {
@@ -89,18 +87,27 @@ class CourseDetails extends Component {
     const {CourseDetailsList} = this.state
 
     return (
-      <CourseDetailsListContainer>
+      <ul>
         {CourseDetailsList.map(each => (
-          <CourseDetailsItem key={each.id} courseItemDetails={each} />
+            <li key={each.id}>
+                <div>
+                    <img src={each.imageUrl} alt={item.name}/>
+                    <div>
+                        <h1>{item.description}</h1>
+                        <p>{item.description}</p>
+                    </div>
+                </div>
+            </li>
+          {/* <CourseDetailsItem key={each.id} courseItemDetails={each} /> */}
         ))}
-      </CourseDetailsListContainer>
+      </ul>
     )
   }
 
   renderLoader = () => (
-    <LoaderContainer data-testid="loader">
+    <div data-testid="loader">
       <Loader type="ThreeDots" color="#00BFFF" height={50} width={50} />
-    </LoaderContainer>
+    </div>
   )
 
   renderCourseDetails = () => {

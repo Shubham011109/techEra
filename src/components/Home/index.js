@@ -3,18 +3,18 @@ import Loader from 'react-loader-spinner'
 import CourseItem from '../CourseItem'
 import Header from '../Header'
 
-import {
-  BgContainer,
-  ErrorContainer,
-  ErrorImg,
-  ErrorHeading,
-  ErrorInfo,
-  ErrorRetryButton,
-  CourseItemsList,
-  CoursesListContainer,
-  Heading,
-  LoaderContainer,
-} from './styledComponents'
+// import {
+//   BgContainer,
+//   ErrorContainer,
+//   ErrorImg,
+//   ErrorHeading,
+//   ErrorInfo,
+//   ErrorRetryButton,
+//   CourseItemsList,
+//   CoursesListContainer,
+//   Heading,
+//   LoaderContainer,
+// } from './styledComponents'
 
 const apiStatusConstants = {
   initial: 'INITIAL',
@@ -65,44 +65,42 @@ class Home extends Component {
   }
 
   renderFailureView = () => (
-    <ErrorContainer>
-      <ErrorImg
+    <div>
+      <img
         src="https://assets.ccbp.in/frontend/react-js/tech-era/failure-img.png"
         alt="failure view"
       />
-      <ErrorHeading>Oops! Something Went Wrong</ErrorHeading>
-      <ErrorInfo>
-        We cannot seem to find the page you are looking for.
-      </ErrorInfo>
-      <ErrorRetryButton
+      <h1>Oops! Something Went Wrong</h1>
+      <p>We cannot seem to find the page you are looking for.</p>
+      <button
         type="button"
         className="retry-button"
         onClick={this.onClickRetry}
       >
         Retry
-      </ErrorRetryButton>
-    </ErrorContainer>
+      </button>
+    </div>
   )
 
   renderCoursesList = () => {
     const {courseList} = this.state
 
     return (
-      <CoursesListContainer>
-        <Heading>Courses</Heading>
-        <CourseItemsList>
+      <div>
+        <h1>Courses</h1>
+        <ul>
           {courseList.map(each => (
             <CourseItem key={each.id} courseItemDetails={each} />
           ))}
-        </CourseItemsList>
-      </CoursesListContainer>
+        </ul>
+      </div>
     )
   }
 
   renderLoader = () => (
-    <LoaderContainer data-testid="loader">
+    <div data-testid="loader">
       <Loader type="ThreeDots" color="#00BFFF" height={50} width={50} />
-    </LoaderContainer>
+    </div>
   )
 
   renderCourses = () => {
@@ -122,10 +120,10 @@ class Home extends Component {
 
   render() {
     return (
-      <BgContainer>
+      <div>
         <Header />
         {this.renderCourses()}
-      </BgContainer>
+      </div>
     )
   }
 }

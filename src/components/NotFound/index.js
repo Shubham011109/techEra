@@ -1,25 +1,23 @@
 import Header from '../Header'
 
-import {
-  NotFoundCard,
-  NotFoundImage,
-  NotFoundHeading,
-  NotFoundInfo,
-} from './styledComponents'
+// import {
+//   NotFoundCard,
+//   NotFoundImage,
+//   NotFoundHeading,
+//   NotFoundInfo,
+// } from './styledComponents'
 
 const NotFound = () => (
   <>
     <Header />
-    <NotFoundCard>
-      <NotFoundImage
+    <div>
+      <img
         src="https://assets.ccbp.in/frontend/react-js/tech-era/not-found-img.png "
         alt="not found"
       />
-      <NotFoundHeading>Page Not found</NotFoundHeading>
-      <NotFoundInfo>
-        We are sorry, the page you requested could not be found
-      </NotFoundInfo>
-    </NotFoundCard>
+      <h1>Page Not found</h1>
+      <p>We are sorry, the page you requested could not be found</p>
+    </div>
   </>
 )
 

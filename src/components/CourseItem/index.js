@@ -1,5 +1,5 @@
 import {Link} from 'react-router-dom'
-import {CourseListItem, CourseLogo, CourseName} from './styledComponents'
+// import {CourseListItem, CourseLogo, CourseName} from './styledComponents'
 
 const CourseItem = props => {
   const {courseItemDetails} = props
@@ -7,10 +7,10 @@ const CourseItem = props => {
 
   return (
     <Link className="anchor-link" to={`/courses/${id}`}>
-      <CourseListItem>
-        <CourseLogo src={logoUrl} alt={name} />
-        <CourseName>{name}</CourseName>
-      </CourseListItem>
+      <li>
+        <img src={logoUrl} alt={name} />
+        <p>{name}</p>
+      </li>
     </Link>
   )
 }

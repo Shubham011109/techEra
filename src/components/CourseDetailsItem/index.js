@@ -1,26 +1,26 @@
-import {
-  CourseDetailsCard,
-  CourseDetailsImage,
-  CourseDetailsTitle,
-  CourseDetailsInfo,
-  CourseInfoContainer,
-  CourseDetailsContainer,
-} from './styledComponents'
+// import {
+//   CourseDetailsCard,
+//   CourseDetailsImage,
+//   CourseDetailsTitle,
+//   CourseDetailsInfo,
+//   CourseInfoContainer,
+//   CourseDetailsContainer,
+// } from './styledComponents'
 
 const CourseDetailsItem = props => {
   const {courseItemDetails} = props
   const {name, description, imageUrl} = courseItemDetails
 
   return (
-    <CourseDetailsCard>
-      <CourseDetailsContainer>
-        <CourseDetailsImage src={imageUrl} alt={name} />
-        <CourseInfoContainer>
-          <CourseDetailsTitle>{name}</CourseDetailsTitle>
-          <CourseDetailsInfo>{description}</CourseDetailsInfo>
-        </CourseInfoContainer>
-      </CourseDetailsContainer>
-    </CourseDetailsCard>
+    <li>
+      <div>
+        <img src={imageUrl} alt={name} />
+        <div>
+          <h1>{name}</h1>
+          <p>{description}</p>
+        </div>
+      </div>
+    </li>
   )
 }
 
